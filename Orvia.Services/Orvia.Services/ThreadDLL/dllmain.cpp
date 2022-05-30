@@ -2,15 +2,16 @@
 
 #include "pch.h"
 
-__declspec(dllexport) ThreadNid*  CreateThread(     const char* _portBalance    ,
-                                                    const char* _portRFID       ,
+__declspec(dllexport) ThreadNid*  CreateThread(     char*       _deviceBalance  ,
+                                                    char*       _deviceRFID     ,
+
 						                            int			_baud           ,
 					                                int			_nbDataBits     ,
 						                            int			_parity         ,        
 						                            int			_nbStopBits     ,
 
-						                            char* _SNAntenne      ,
-						                            char* _SNBalance      ,
+						                            char*       _SNAntenne      ,
+						                            char*       _SNBalance      ,
 
 						                            double      _minPoidsOeuf   ,
 						                            double      _maxPoidsOeuf   ,
@@ -18,17 +19,12 @@ __declspec(dllexport) ThreadNid*  CreateThread(     const char* _portBalance    
 						                            double      _maxPoidsPoule  ,  
 
 						                            int			_debug          ,
-						                            char* _pathDebugFile			)
+						                            char*       _pathDebugFile		)
 {
 
-    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>> converter;
-
-    std::wstring portBalance = converter.from_bytes(_portBalance);
-    std::wstring portRFID = converter.from_bytes(_portRFID);
-
-    ThreadNid *threadNid = new ThreadNid(   portBalance, portRFID, _baud, _nbDataBits, _parity, _nbStopBits, _SNAntenne, _SNBalance,
+    ThreadNid *threadNid = new ThreadNid(   _deviceBalance, _deviceRFID, _baud, _nbDataBits, _parity, _nbStopBits, _SNAntenne, _SNBalance,
                                             _minPoidsOeuf, _maxPoidsOeuf, _minPoidsPoule, _maxPoidsPoule,
-                                            _debug, _pathDebugFile                                                  );
+                                            _debug, _pathDebugFile                                                                           );
 
     return threadNid;
 

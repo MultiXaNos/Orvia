@@ -7,17 +7,19 @@
 #ifndef PCH_H
 #define PCH_H
 
-// ajouter les en-têtes à précompiler ici
 #include "framework.h"
+
+#include "serialib.h"
+
 #include "Periph.h"
 #include "Periph_Balance.h"
 #include "Periph_RFID.h"
-#include "Serial.h"
-#include "Etat.h"
+
 #include "Nid.h"
 #include "ThreadNid.h"
-#include <locale>
-#include <codecvt>
-#include <string>
+
+#include "Etat.h"
+
+#include "Functions.h"
 
 #endif //PCH_H

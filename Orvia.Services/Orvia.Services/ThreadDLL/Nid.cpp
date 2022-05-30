@@ -1,27 +1,26 @@
 #include "pch.h"
-#include "Nid.h"
 
-Nid::Nid(std::wstring _portBalance,
-	std::wstring _portRFID,
-	int         _baud,
-	int         _nbDataBits,
-	int         _parity,
-	int         _nbStopBits,
+Nid::Nid	(std::string _deviceBalance		,
+			std::string  _deviceRFID		,
+			int          _baud				,
+			int          _nbDataBits		,
+			int          _parity			,
+			int          _nbStopBits		,
 
-	std::string _SNBalance,
-	std::string _SNAntenne,
+			std::string  _SNBalance			,
+			std::string  _SNAntenne			,
 
-	double      _minPoidsOeuf,
-	double      _maxPoidsOeuf,
-	double      _minPoidsPoule,
-	double      _maxPoidsPoule,
+			double       _minPoidsOeuf	    ,
+			double       _maxPoidsOeuf   	,
+			double       _minPoidsPoule		,
+			double       _maxPoidsPoule		,
 
-	int         _debug,
-	std::string _pathDebugFile)
+			int          _debug				,
+			std::string  _pathDebugFile			)
 {
 
-	periphBalance = new PeriphBalance(_portBalance, _baud, _nbDataBits, _parity, _nbStopBits, _SNBalance, _debug, _pathDebugFile );
-	periphRFID    = new PeriphRFID(_portRFID, _baud, _nbDataBits, _parity, _nbStopBits, _SNAntenne, _debug, _pathDebugFile );
+	periphBalance = new PeriphBalance( _SNBalance, _debug, _pathDebugFile, _deviceBalance, _baud, _nbDataBits, _parity, _nbStopBits);
+	periphRFID    = new PeriphRFID(	_SNAntenne, _debug, _pathDebugFile , _deviceRFID, _baud, _nbDataBits, _parity, _nbStopBits);
 
 	minPoidsOeuf  = _minPoidsOeuf;
 	maxPoidsOeuf  = _maxPoidsOeuf;

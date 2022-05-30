@@ -10,7 +10,6 @@ namespace Orvia.Console // Note: actual namespace depends on the project name.
         static void Main(string[] args)
         {
             NidsManager.Instance.AppendFromFile(Constants.XmlFile.NidsFilePath);
-            NidsManager.Instance.RegisterInFile("Nid3", NidsManager.Instance.Nids["Nid1"]);
         }
     }
 }

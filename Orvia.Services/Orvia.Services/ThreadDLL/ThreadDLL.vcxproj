@@ -24,6 +24,7 @@
     <ProjectGuid>{287c1ec7-d516-4c90-8bea-1343f18feeec}</ProjectGuid>
     <RootNamespace>ThreadDLL</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>    </ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -153,16 +154,18 @@
   <ItemGroup>
     <ClInclude Include="framework.h" />
     <ClInclude Include="Etat.h" />
+    <ClInclude Include="Functions.h" />
     <ClInclude Include="Nid.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Periph.h" />
     <ClInclude Include="Periph_Balance.h" />
     <ClInclude Include="Periph_RFID.h" />
-    <ClInclude Include="Serial.h" />
+    <ClInclude Include="serialib.h" />
     <ClInclude Include="ThreadNid.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Functions.cpp" />
     <ClCompile Include="Nid.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -173,11 +176,8 @@
     <ClCompile Include="Periph.cpp" />
     <ClCompile Include="Periph_Balance.cpp" />
     <ClCompile Include="Periph_RFID.cpp" />
-    <ClCompile Include="Serial.cpp" />
+    <ClCompile Include="serialib.cpp" />
     <ClCompile Include="ThreadNid.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ThreadDLL\x64\Debug\ThreadDLL.dll" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -4,6 +4,7 @@
 #include "Etat.h"
 
 #include <stdlib.h>
+
 #include <thread>
 #include <chrono>
 #include <functional>
@@ -30,20 +31,20 @@ protected :
 
 public :
 
-	ThreadNid(  std::wstring _portBalance	,
-				std::wstring _portRFID		,
-		        int			_baud			, 
-				int			_nbDataBits	    , 
-				int			_parity			, 
-				int			_nbStopBits     , 
+	ThreadNid(  std::string  _deviceBalance	,
+				std::string  _deviceRFID    ,
+		        int			 _baud			, 
+				int			 _nbDataBits	, 
+				int			 _parity	    , 
+				int			 _nbStopBits    , 
 
-			    std::string _SNAntenne		,
-				std::string _SNBalance		,
+			    std::string  _SNAntenne		,
+				std::string  _SNBalance		,
 
-				double      _minPoidsOeuf	,
-				double      _maxPoidsOeuf	,
-				double      _minPoidsPoule	,
-				double      _maxPoidsPoule	,
+				double       _minPoidsOeuf	,
+				double       _maxPoidsOeuf	,
+				double       _minPoidsPoule	,
+				double       _maxPoidsPoule	,
 
 			    int			_debug			, 
 			    std::string _pathDebugFile		);

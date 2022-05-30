@@ -4,6 +4,7 @@
 #include "Periph_RFID.h"
 
 #include <Windows.h>
+
 #include <string>
 #include <map>
 #include <iterator>
@@ -32,23 +33,23 @@ private :
 
 public :
 
-	Nid(    std::wstring _portBalance    ,
-			std::wstring _portRFID		,
-		    int         _baud           , 
-		    int         _nbDataBits     , 
-		    int         _parity         ,   
-		    int         _nbStopBits     , 
+	Nid(    std::string _deviceBalance  ,
+			std::string _deviceRFID     ,
+		    int          _baud           , 
+		    int          _nbDataBits     , 
+		    int          _parity         ,   
+		    int          _nbStopBits     , 
 
-		    std::string _SNBalance      , 
-		    std::string _SNAntenne      , 
+		    std::string  _SNBalance      , 
+		    std::string  _SNAntenne      , 
+		 
+		    double       _minPoidsOeuf   ,
+		    double       _maxPoidsOeuf   ,
+		    double       _minPoidsPoule  ,
+		    double       _maxPoidsPoule  ,
 
-		    double      _minPoidsOeuf   ,
-		    double      _maxPoidsOeuf   ,
-		    double      _minPoidsPoule  ,
-		    double      _maxPoidsPoule  ,
-
-		    int         _debug          , 
-		    std::string _pathDebugFile       );
+		    int          _debug          , 
+		    std::string  _pathDebugFile       );
 
 	~Nid();
 

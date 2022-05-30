@@ -1,26 +1,26 @@
 #include "pch.h"
-#include "ThreadNid.h"
 
-ThreadNid::ThreadNid(	std::wstring _portBalance,
-						std::wstring _portRFID,
-						int			_baud,
-					    int			_nbDataBits,
-						int			_parity,
-						int			_nbStopBits,
+ThreadNid::ThreadNid(   std::string  _deviceBalance ,
+						std::string  _deviceRFID	,
+						int			 _baud			,
+						int			 _nbDataBits	,
+						int			 _parity		,
+						int			 _nbStopBits	,
 
-						std::string _SNAntenne,
-						std::string _SNBalance,
+						std::string  _SNAntenne		,
+						std::string  _SNBalance		,
 
-						double      _minPoidsOeuf,
-						double      _maxPoidsOeuf,
-						double      _minPoidsPoule,
-						double      _maxPoidsPoule,
+						double       _minPoidsOeuf  ,
+						double       _maxPoidsOeuf  ,
+						double       _minPoidsPoule ,
+						double       _maxPoidsPoule ,
 
-						int			_debug,
-						std::string _pathDebugFile			)
+						int			_debug			,
+						std::string _pathDebugFile		)
 {
 
-	nid    = new Nid(_portBalance, _portRFID, _baud, _nbDataBits, _parity, _nbStopBits, _SNAntenne, _SNBalance, _minPoidsOeuf, _maxPoidsOeuf, _minPoidsPoule, _maxPoidsPoule, _debug, _pathDebugFile); 
+	nid    = new Nid(   _deviceBalance, _deviceRFID, _baud, _nbDataBits, _parity, _nbStopBits, 
+						_SNAntenne, _SNBalance, _minPoidsOeuf, _maxPoidsOeuf, _minPoidsPoule, _maxPoidsPoule, _debug, _pathDebugFile  );
 
 	statut = Etat::SOMMEIL;
 

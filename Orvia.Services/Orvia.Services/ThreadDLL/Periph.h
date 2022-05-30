@@ -1,12 +1,11 @@
 #pragma once
 
 #include <iostream>
-#include <fstream>
 #include <regex>
-#include <string>
 #include <tchar.h>
 
-#include "Serial.h"
+#include "serialib.h"
+#include "Functions.h"
 
 #define BUFFER_SIZE 1024
 #define STR_SIZE    100
@@ -21,16 +20,22 @@ protected :
 
 	int         debugMode;      
 
-	CSerial     comRS;
+	serialib    *serial;
 
 public    :
 
-	Periph(std::wstring _port, int _baud, int _nbDataBits, int _parity, int _nbStopBits, std::string _SN, int _debug, std::string _pathDebugFile);
+	Periph(		std::string			_SN                 ,
+				int					_debug              ,
+				std::string			_pathDebugFile      ,
+				std::string         _device				, 
+				const unsigned int  _baud				, 
+				int					_nbDataBits = 8		,
+				int					_parity     = 0		, 
+				int					_nbStopBits = 1		    );
+
 	virtual ~Periph();
 
 	int getTrame(std::string * trame);
-
-	int WriteInDebugFile(std::string _line);
 
 };
 

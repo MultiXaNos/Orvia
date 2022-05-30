@@ -245,7 +245,7 @@ namespace Orvia.Services
                    double minPoidsPoule,
                    double maxPoidsPoule,
                    int debug = 1,
-                   string pathDebugFile = @"C:\Users\proje\Desktop\Logs.txt")
+                   string pathDebugFile = @"C:\Users\maxen\Desktop\Logs.txt")
         {
             PortBalance = portBalance;
             PortRFID = portRFID;

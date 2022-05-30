@@ -54,7 +54,7 @@ public sealed class NidsManager
             throw new Exception("Xml file has not been instianted");
         }
 
-        _document.Root.Elements().Remove();
+        _document?.Root?.Elements().Remove();
 
         var nidXml = new XElement(name,
                         new XElement("PortBalance", nid.PortBalance),
@@ -62,8 +62,8 @@ public sealed class NidsManager
                         new XElement("BaudRate", (int)nid.BaudRate)
                         );
 
-        _document.Root.Add(nidXml);
-        _document.Save(Constants.XmlFile.NidsFilePath);
+        _document?.Root?.Add(nidXml);
+        _document?.Save(Constants.XmlFile.NidsFilePath);
     }
 
     public void AppendFromFile(string filePath)
