@@ -1,4 +1,7 @@
 ﻿using Orvia.Services;
+using Orvia.Services.Core;
+using System.Text;
+using System.Windows.Input;
 
 namespace Orvia.Console // Note: actual namespace depends on the project name.
 {
@@ -6,10 +9,8 @@ namespace Orvia.Console // Note: actual namespace depends on the project name.
     {
         static void Main(string[] args)
         {
-            var instance = NidsManager.CreatePeriphRFID("COM1", 9600, 8,
-                1, 1, string.Empty,
-                0, "C:\\Users\\proje\\Desktop", "Tag");
-            
+            NidsManager.Instance.AppendFromFile(Constants.XmlFile.NidsFilePath);
+            NidsManager.Instance.RegisterInFile("Nid3", NidsManager.Instance.Nids["Nid1"]);
         }
     }
 }

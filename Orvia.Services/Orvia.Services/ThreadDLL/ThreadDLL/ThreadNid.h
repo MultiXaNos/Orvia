@@ -49,17 +49,17 @@ public :
 
 	~ThreadNid();
 
-	int    WakeUpThread();
+	int          WakeUpThread();
 
-	void   Terminate();
+	void         Terminate();
 
-	int    getStatut();
+	int          getStatut();
 
 	const char*  getError();
+	 
+	int          getNbOeuf();
 
-	int    getNbOeuf();
-
-	int    getPontes(char ***pontes);
+	int          getPontes(char ***pontes);
 
 };
 

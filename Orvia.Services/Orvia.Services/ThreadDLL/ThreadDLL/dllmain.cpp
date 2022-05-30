@@ -2,7 +2,7 @@
 
 #include "pch.h"
 
-__declspec(dllexport) ThreadNid* CreateThread(     std::string _port           ,
+__declspec(dllexport) ThreadNid*  CreateThread(     std::string _port           ,
 						                            int			_baud           ,
 					                                int			_nbDataBits     ,
 						                            int			_parity         ,        
@@ -28,22 +28,21 @@ __declspec(dllexport) ThreadNid* CreateThread(     std::string _port           ,
 
 }
 
-void __declspec(dllexport) KillThread(ThreadNid* threadNid)
+__declspec(dllexport) void KillThread(ThreadNid* threadNid)
 {
 
     threadNid->Terminate();
-    delete threadNid;
 
 }
 
-int __declspec(dllexport) WakeUpThread(ThreadNid* threadNid)
+__declspec(dllexport) int WakeUpThread(ThreadNid* threadNid)
 {
 
     return threadNid->WakeUpThread();
 
 }
 
-int __declspec(dllexport) getStatut(ThreadNid* threadNid)
+__declspec(dllexport) int getStatut(ThreadNid* threadNid)
 {
 
     return threadNid->getStatut();
@@ -57,14 +56,14 @@ __declspec(dllexport) const char* getError(ThreadNid* threadNid)
 
 }
 
-int __declspec(dllexport) getNbOeuf(ThreadNid* threadNid)
+__declspec(dllexport) int getNbOeuf(ThreadNid* threadNid)
 {
 
     return threadNid->getNbOeuf();
 
 }
 
-int __declspec(dllexport) getPontes(ThreadNid* threadNid, char ***pontes)
+__declspec(dllexport) int getPontes(ThreadNid* threadNid, char ***pontes)
 {
 
     int ret;
@@ -74,8 +73,6 @@ int __declspec(dllexport) getPontes(ThreadNid* threadNid, char ***pontes)
     return ret; 
 
 }
-
-
 
 BOOL APIENTRY DllMain( HMODULE hModule,
                        DWORD  ul_reason_for_call,

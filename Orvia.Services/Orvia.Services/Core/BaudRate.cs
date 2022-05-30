@@ -8,6 +8,6 @@ namespace Orvia.Services.Core
 {
     public enum BaudRate
     {
-
+        NEUFMILLE = 9600
     }
 }

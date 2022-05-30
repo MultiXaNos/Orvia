@@ -142,7 +142,7 @@ int  Nid::refresh(std::string* sError)
 
 		for (std::list<std::string>::iterator it = tagsRFID.begin(); it != tagsRFID.end(); it++) {
 
-			addPonte(&((std::string) *it), &pontesPotentielles);
+			addPonte((std::string *) &it, &pontesPotentielles);
 
 		}
 
@@ -240,7 +240,7 @@ int Nid::getPontes(std::list< std::list<std::string> > *allPontes)
 
 }
 
-int Nid::getNbOeuf()
+int  Nid::getNbOeuf()
 {
 
 	return nbOeufs;

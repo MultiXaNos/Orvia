@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\Orvia.Services\Orvia.Services\Orvia.Services.csproj" />
+      <ProjectReference Include="..\Orvia.Services\Orvia.Services\Orvia.Services.csproj" />
     </ItemGroup>
 
 </Project>

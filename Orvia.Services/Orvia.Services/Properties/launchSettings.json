@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Orvia.Services": {
+      "commandName": "Project",
+      "nativeDebugging": true
+    }
+  }
+}
