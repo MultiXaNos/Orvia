@@ -7,7 +7,7 @@ public static class Constants
         public const string DllPath =
             @"ThreadDLL\x64\Debug\ThreadDLL.dll";
 
-        public const string CreateThreadEntryPoint = "?CreateThread@@YAPEAVThreadNid@@PEBD0HHHHPEAD1NNNNH1@Z";
+        public const string CreateThreadEntryPoint = "?CreateThread@@YAPEAVThreadNid@@PEAD0HHHH00NNNNH0@Z";
         public const string KillThreadEntryPoint = "?KillThread@@YAXPEAVThreadNid@@@Z";
         public const string WakeUpThreadEntryPoint = "?WakeUpThread@@YAHPEAVThreadNid@@@Z";
         public const string GetErrorEntryPoint = "?getError@@YAPEBDPEAVThreadNid@@@Z";

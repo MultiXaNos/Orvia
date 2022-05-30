@@ -3,16 +3,18 @@ using System.Runtime.InteropServices;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Timer = System.Timers.Timer;
 
 namespace Orvia.Services;
 [XmlRoot(ElementName = "NidsManager", Namespace = "")]
-public sealed class NidsManager
+public sealed class NidsManager : IDisposable
 {
 
     #region Fields
 
     private static NidsManager _instance;
     private static XDocument _document;
+    private Timer _timer;
 
     #endregion Fields
 
@@ -40,7 +42,31 @@ public sealed class NidsManager
 
     private NidsManager()
     {
-        
+        _timer = new Timer(100);
+        _timer.Elapsed += Timer_Elapsed;
+
+        Nids = new Dictionary<string,Nid>();
+        MySqlServices.Instance.OpenCommunication();
+        var test = MySqlServices.Instance.SendReadRequest("SELECT * FROM NID");
+        for(int i = 0; i < test.FieldCount; i++)
+        {
+            Nids.Add($"Nid{i+1}", new Nid());
+        }
+
+        _timer.Start();
+    }
+
+    private void Timer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)
+    {
+        _timer.Stop();
+
+        foreach(var value in Nids.Values.Where(x => x.IsConfigured))
+        {
+            value.getStatut();
+            value.
+        }
+
+        _timer.Start();
     }
 
     #endregion Constructor
@@ -66,11 +92,14 @@ public sealed class NidsManager
         _document?.Save(Constants.XmlFile.NidsFilePath);
     }
 
+    public List<KeyValuePair<string, Nid>> GetNidsNonConfig()
+    {
+        return Nids.Where(x => !x.Value.IsConfigured).ToList();
+    }
+
     public void AppendFromFile(string filePath)
     {
         _document = XDocument.Load(filePath);
-
-        Nids = new Dictionary<string, Nid>();
 
         foreach(var element in _document.Descendants("NidsManager").Descendants())
         {
@@ -92,7 +121,7 @@ public sealed class NidsManager
                 double minPoidsPoule = double.Parse(element.Element("MinPoidsPoule")?.Value);
                 double maxPoidsPoule = double.Parse(element.Element("MaxPoidsPoule")?.Value);
 
-                Nids.Add(name, new Nid(portBalance,
+                Nids[name] = new Nid(portBalance,
                                        portRFID,
                                        baudRate,
                                        nbDataBits,
@@ -103,12 +132,24 @@ public sealed class NidsManager
                                        minPoidsOeuf,
                                        maxPoidsOeuf,
                                        minPoidsPoule,
-                                       maxPoidsPoule));
+                                       maxPoidsPoule);
+                Nids[name].WakeUpThread();
             }
         }
     }
 
     #endregion Public Methods
 
+    #region IDisposable
+
+    public void Dispose()
+    {
+        foreach(var threadNid in NidsManager.Instance.Nids.Values.Where(x => x.IsConfigured))
+        {
+            threadNid.Dispose();
+        }
+    }
+
+    #endregion IDisposable
 
 }

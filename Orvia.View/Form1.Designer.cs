@@ -35,14 +35,18 @@ partial class Form1
             this.toolStripComboBox1 = new System.Windows.Forms.ToolStripComboBox();
             this.config_tabControl = new System.Windows.Forms.TabControl();
             this.Config_tP = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.nidConfigDone_lb = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nidConfig_lb = new System.Windows.Forms.ListBox();
             this.saveConfig_btn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1.SuspendLayout();
             this.config_tabControl.SuspendLayout();
             this.Config_tP.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -79,6 +83,8 @@ partial class Form1
             // 
             // Config_tP
             // 
+            this.Config_tP.Controls.Add(this.label2);
+            this.Config_tP.Controls.Add(this.nidConfigDone_lb);
             this.Config_tP.Controls.Add(this.groupBox1);
             this.Config_tP.Controls.Add(this.label1);
             this.Config_tP.Controls.Add(this.nidConfig_lb);
@@ -92,11 +98,35 @@ partial class Form1
             this.Config_tP.Text = "Config";
             this.Config_tP.UseVisualStyleBackColor = true;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label2.Location = new System.Drawing.Point(548, 232);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(277, 42);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Nids configurés";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // nidConfigDone_lb
+            // 
+            this.nidConfigDone_lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.nidConfigDone_lb.FormattingEnabled = true;
+            this.nidConfigDone_lb.IntegralHeight = false;
+            this.nidConfigDone_lb.ItemHeight = 20;
+            this.nidConfigDone_lb.Location = new System.Drawing.Point(461, 277);
+            this.nidConfigDone_lb.Name = "nidConfigDone_lb";
+            this.nidConfigDone_lb.Size = new System.Drawing.Size(437, 217);
+            this.nidConfigDone_lb.TabIndex = 4;
+            this.nidConfigDone_lb.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Location = new System.Drawing.Point(17, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(438, 515);
@@ -124,7 +154,7 @@ partial class Form1
             this.nidConfig_lb.ItemHeight = 20;
             this.nidConfig_lb.Location = new System.Drawing.Point(461, 53);
             this.nidConfig_lb.Name = "nidConfig_lb";
-            this.nidConfig_lb.Size = new System.Drawing.Size(437, 432);
+            this.nidConfig_lb.Size = new System.Drawing.Size(437, 171);
             this.nidConfig_lb.TabIndex = 1;
             this.nidConfig_lb.SelectedIndexChanged += new System.EventHandler(this.nidConfig_lb_SelectedIndexChanged);
             // 
@@ -138,6 +168,7 @@ partial class Form1
             this.saveConfig_btn.TabIndex = 0;
             this.saveConfig_btn.Text = "Save config";
             this.saveConfig_btn.UseVisualStyleBackColor = true;
+            this.saveConfig_btn.Click += new System.EventHandler(this.saveConfig_btn_Click);
             // 
             // tabPage2
             // 
@@ -149,6 +180,14 @@ partial class Form1
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "State";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(18, 74);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(104, 28);
+            this.comboBox1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -167,6 +206,7 @@ partial class Form1
             this.config_tabControl.ResumeLayout(false);
             this.Config_tP.ResumeLayout(false);
             this.Config_tP.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
     }
@@ -183,4 +223,7 @@ partial class Form1
     private ListBox nidConfig_lb;
     private Label label1;
     private GroupBox groupBox1;
+    private Label label2;
+    private ListBox nidConfigDone_lb;
+    private ComboBox comboBox1;
 }

@@ -31,6 +31,9 @@ namespace Orvia.Services
         private double _maxPoidsPoule;
         private int _debug;
         private string _pathDebugFile;
+        private bool _isConfigured = false;
+        private Status _status;
+        private int _nbOeufs;
 
         #endregion Fields
 
@@ -228,6 +231,42 @@ namespace Orvia.Services
             }
         }
 
+        public bool IsConfigured
+        {
+            get { return _isConfigured; }
+            set
+            {
+                if(_isConfigured != value)
+                {
+                    _isConfigured = value;
+                }
+            }
+        }
+
+        public Status Status
+        {
+            get { return _status; }
+            set
+            {
+                if(_status != value)
+                {
+                    _status = value;
+                }
+            }
+        }
+
+        public int NbOeufs
+        {
+            get { return _nbOeufs; }
+            set
+            {
+                if(_nbOeufs != value)
+                {
+                    _nbOeufs = value;
+                }
+            }
+        }
+
         #endregion Properties
 
         #region Constructor
@@ -261,14 +300,18 @@ namespace Orvia.Services
             MaxPoidsPoule = maxPoidsPoule;
             _debug = debug;
             _pathDebugFile = pathDebugFile;
+            _isConfigured = true;
             CreateThread();
         }
+
+        public Nid()
+        { }
 
         #endregion Constructor
 
         #region DllImport
 
-        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.CreateThreadEntryPoint, CharSet=CharSet.Unicode)]
+        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.CreateThreadEntryPoint)]
         public static extern IntPtr CreateThread([In, MarshalAs(UnmanagedType.LPStr)] string portBalance,
                                                  [In, MarshalAs(UnmanagedType.LPStr)] string portRFID,
                                                  int baud,
@@ -327,12 +370,12 @@ namespace Orvia.Services
 
             return WakeUpThread(_threadInstance);
         }
-        public int getStatut()
+        public void getStatut()
         {
             if (_threadInstance == IntPtr.Zero)
                 throw new ArgumentNullException("Thread instance does not exists");
 
-            return getStatut(_threadInstance);
+            _status = (Status)getStatut(_threadInstance);
         }
 
         public char[] getError()
@@ -343,12 +386,12 @@ namespace Orvia.Services
             return getError(_threadInstance);
         }
 
-        public int getNbOeuf()
+        public void getNbOeuf()
         {
             if (_threadInstance == IntPtr.Zero)
                 throw new ArgumentNullException("Thread instance does not exists");
 
-            return getNbOeuf(_threadInstance);
+            _nbOeufs = getNbOeuf(_threadInstance);
         }
 
         public int getPontes()

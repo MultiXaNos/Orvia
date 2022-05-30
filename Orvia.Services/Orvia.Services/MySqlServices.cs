@@ -63,7 +63,7 @@ namespace Orvia.Services
 
         public MySqlDataReader SendReadRequest(string request)
         {
-            MySqlCommand command = new MySqlCommand(request);
+            MySqlCommand command = new MySqlCommand(request, _connection);
             var result = command.ExecuteReader();
             while (result.Read());
             return result;
