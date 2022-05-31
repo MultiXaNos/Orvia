@@ -8,6 +8,8 @@ namespace Orvia.Services.Core
 {
     public enum Status
     {
-
+        ERREUR = -1,
+        SOMMEIL = 0,
+        MARCHE = 1
     }
 }

@@ -7,7 +7,7 @@ public partial class Form1 : Form
     public Form1()
     {
         InitializeComponent();
-        NidsManager.Instance.AppendFromFile(Constants.XmlFile.NidsFilePath);
+        //NidsManager.Instance.AppendFromFile(Constants.XmlFile.NidsFilePath);
         foreach(var value in NidsManager.Instance.GetNidsNonConfig())
         {
             nidConfig_lb.Items.Add(value.Key);
@@ -26,6 +26,11 @@ public partial class Form1 : Form
 
 
     private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+
+    private void groupBox1_Enter(object sender, EventArgs e)
     {
 
     }

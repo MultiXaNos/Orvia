@@ -245,7 +245,11 @@ namespace Orvia.Services
 
         public Status Status
         {
-            get { return _status; }
+            get 
+            {
+                getStatut();
+                return _status; 
+            }
             set
             {
                 if(_status != value)
@@ -343,7 +347,7 @@ namespace Orvia.Services
         public static extern int getNbOeuf(IntPtr thread);
 
         [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetPontesEntryPoint)]
-        public static extern int getPontes(IntPtr thread);
+        public static extern int getPontes(IntPtr thread, ref string[] pontes);
 
 
         #endregion DllImport
@@ -399,7 +403,11 @@ namespace Orvia.Services
             if (_threadInstance == IntPtr.Zero)
                 throw new ArgumentNullException("Thread instance does not exists");
 
-            return getPontes(_threadInstance);
+            string[] pontes = new string[100];
+
+            var ret = getPontes(_threadInstance, ref pontes);
+
+            return ret;
         }
 
 

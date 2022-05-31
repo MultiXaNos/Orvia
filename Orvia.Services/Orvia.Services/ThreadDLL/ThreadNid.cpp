@@ -139,7 +139,7 @@ int ThreadNid::getPontes(char ***pontes)
 
 	ret = nid->getPontes(&allPontes);
 
-	if(ret <=0) exit(0);
+	if(ret <=0) return 0;
 
 	nbLigne   = allPontes.size();
 

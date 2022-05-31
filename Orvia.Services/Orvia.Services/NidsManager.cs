@@ -15,6 +15,8 @@ public sealed class NidsManager : IDisposable
     private static NidsManager _instance;
     private static XDocument _document;
     private Timer _timer;
+    private object _lockObject = new object();
+    private CancellationToken _cancellationToken;
 
     #endregion Fields
 
@@ -58,15 +60,17 @@ public sealed class NidsManager : IDisposable
 
     private void Timer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)
     {
-        _timer.Stop();
-
-        foreach(var value in Nids.Values.Where(x => x.IsConfigured))
+        lock (_lockObject)
         {
-            value.getStatut();
-            value.
+            _timer.Stop();
+            foreach (var value in Nids.Values.Where(x => x.IsConfigured))
+            {
+                value.getStatut();
+                value.getNbOeuf();
+                value.getPontes();
+            }
+            _timer.Start();
         }
-
-        _timer.Start();
     }
 
     #endregion Constructor
@@ -97,7 +101,7 @@ public sealed class NidsManager : IDisposable
         return Nids.Where(x => !x.Value.IsConfigured).ToList();
     }
 
-    public void AppendFromFile(string filePath)
+    public void AppendFromFile(string filePath, ref CancellationToken cancellationToken)
     {
         _document = XDocument.Load(filePath);
 
@@ -133,9 +137,11 @@ public sealed class NidsManager : IDisposable
                                        maxPoidsOeuf,
                                        minPoidsPoule,
                                        maxPoidsPoule);
-                Nids[name].WakeUpThread();
+                //Nids[name].WakeUpThread(); //[ToDo] Supprimer le commentaire pour lancer les threads
             }
         }
+        _cancellationToken = cancellationToken;
+        _cancellationToken.Register(Dispose);
     }
 
     #endregion Public Methods

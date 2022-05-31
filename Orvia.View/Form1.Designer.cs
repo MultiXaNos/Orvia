@@ -38,15 +38,18 @@ partial class Form1
             this.label2 = new System.Windows.Forms.Label();
             this.nidConfigDone_lb = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.nidConfig_lb = new System.Windows.Forms.ListBox();
             this.saveConfig_btn = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.contextMenuStrip1.SuspendLayout();
             this.config_tabControl.SuspendLayout();
             this.Config_tP.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -126,6 +129,7 @@ partial class Form1
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Location = new System.Drawing.Point(17, 42);
             this.groupBox1.Name = "groupBox1";
@@ -133,6 +137,25 @@ partial class Form1
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configuration du nid";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Location = new System.Drawing.Point(21, 26);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(396, 135);
+            this.groupBox2.TabIndex = 0;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Communication";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(161, 121);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(104, 28);
+            this.comboBox1.TabIndex = 0;
             // 
             // label1
             // 
@@ -152,7 +175,7 @@ partial class Form1
             this.nidConfig_lb.FormattingEnabled = true;
             this.nidConfig_lb.IntegralHeight = false;
             this.nidConfig_lb.ItemHeight = 20;
-            this.nidConfig_lb.Location = new System.Drawing.Point(461, 53);
+            this.nidConfig_lb.Location = new System.Drawing.Point(463, 53);
             this.nidConfig_lb.Name = "nidConfig_lb";
             this.nidConfig_lb.Size = new System.Drawing.Size(437, 171);
             this.nidConfig_lb.TabIndex = 1;
@@ -181,13 +204,14 @@ partial class Form1
             this.tabPage2.Text = "State";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // label3
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(18, 74);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(104, 28);
-            this.comboBox1.TabIndex = 0;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(23, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Port Antenne";
             // 
             // Form1
             // 
@@ -207,6 +231,8 @@ partial class Form1
             this.Config_tP.ResumeLayout(false);
             this.Config_tP.PerformLayout();
             this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
     }
@@ -226,4 +252,6 @@ partial class Form1
     private Label label2;
     private ListBox nidConfigDone_lb;
     private ComboBox comboBox1;
+    private GroupBox groupBox2;
+    private Label label3;
 }
