@@ -326,10 +326,10 @@ namespace Orvia.Services
             _pathDebugFile = pathDebugFile;
             _isConfigured = isConfigured;
 
-            if (OperatingSystem.IsLinux())
+            /*if (OperatingSystem.IsLinux())
             {
                 UseDll = false;
-            }
+            }*/
 
             CreateThread();
         }
