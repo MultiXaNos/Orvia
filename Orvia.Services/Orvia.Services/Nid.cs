@@ -40,6 +40,8 @@ namespace Orvia.Services
 
         #region Properties
 
+        public bool UseDll { get; set; } = true;
+
         public string Name
         {
             get { return _name; }
@@ -324,6 +326,11 @@ namespace Orvia.Services
             _pathDebugFile = pathDebugFile;
             _isConfigured = isConfigured;
 
+            if (OperatingSystem.IsLinux())
+            {
+                UseDll = false;
+            }
+
             CreateThread();
         }
 
@@ -334,9 +341,9 @@ namespace Orvia.Services
 
         #endregion Constructor
 
-        #region DllImport
+        #region SOImport
 
-        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.CreateThreadEntryPoint)]
+        [DllImport(Constants.SO.SOPath)]
         public static extern IntPtr CreateThread([In, MarshalAs(UnmanagedType.LPStr)] string portBalance,
                                                  [In, MarshalAs(UnmanagedType.LPStr)] string portRFID,
                                                  int baud,
@@ -352,23 +359,61 @@ namespace Orvia.Services
                                                  int debug,
                                                  [In, MarshalAs(UnmanagedType.LPStr)] string pathDebugFile);
 
-        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.KillThreadEntryPoint)]
+        [DllImport(Constants.SO.SOPath)]
         public static extern void KillThread(IntPtr thread);
 
-        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.WakeUpThreadEntryPoint)]
+        [DllImport(Constants.SO.SOPath)]
         public static extern int WakeUpThread(IntPtr thread);
 
-        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetStatutEntryPoint)]
+        [DllImport(Constants.SO.SOPath)]
         public static extern int getStatut(IntPtr thread);
-        
-        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetErrorEntryPoint)]
+
+        [DllImport(Constants.SO.SOPath)]
         public static extern char[] getError(IntPtr thread);
 
-        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetNbOeufEntryPoint)]
+        [DllImport(Constants.SO.SOPath)]
         public static extern int getNbOeuf(IntPtr thread);
 
-        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetPontesEntryPoint)]
+        [DllImport(Constants.SO.SOPath)]
         public static extern int getPontes(IntPtr thread, ref string[] pontes);
+
+        #endregion SOImport
+
+        #region DllImport
+
+        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.CreateThreadEntryPoint)]
+        public static extern IntPtr CreateThreadDLL([In, MarshalAs(UnmanagedType.LPStr)] string portBalance,
+                                                 [In, MarshalAs(UnmanagedType.LPStr)] string portRFID,
+                                                 int baud,
+                                                 int nbDataBits,
+                                                 int parity,
+                                                 int nbStopBits,
+                                                 [In, MarshalAs(UnmanagedType.LPStr)] string SNAntenne,
+                                                 [In, MarshalAs(UnmanagedType.LPStr)] string SNBalance,
+                                                 double minPoidsOeuf,
+                                                 double maxPoidsOeuf,
+                                                 double minPoidsPoule,
+                                                 double maxPoidsPoule,
+                                                 int debug,
+                                                 [In, MarshalAs(UnmanagedType.LPStr)] string pathDebugFile);
+
+        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.KillThreadEntryPoint)]
+        public static extern void KillThreadDLL(IntPtr thread);
+
+        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.WakeUpThreadEntryPoint)]
+        public static extern int WakeUpThreadDLL(IntPtr thread);
+
+        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetStatutEntryPoint)]
+        public static extern int getStatutDLL(IntPtr thread);
+        
+        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetErrorEntryPoint)]
+        public static extern char[] getErrorDLL(IntPtr thread);
+
+        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetNbOeufEntryPoint)]
+        public static extern int getNbOeufDLL(IntPtr thread);
+
+        [DllImport(Constants.DLL.DllPath, CallingConvention = CallingConvention.Cdecl, EntryPoint = Constants.DLL.GetPontesEntryPoint)]
+        public static extern int getPontesDLL(IntPtr thread, ref string[] pontes);
 
 
         #endregion DllImport
@@ -377,7 +422,7 @@ namespace Orvia.Services
 
         public void CreateThread()
         {
-            _threadInstance = CreateThread(_portBalance, _portRFID, (int)_baud, _nbDataBits, (int)_parity, _nbStopBits, _SNAntenne, _SNBalance, _minPoidsOeuf, _maxPoidsOeuf, _minPoidsPoule, _maxPoidsPoule, _debug, _pathDebugFile);
+            _threadInstance = UseDll ? CreateThreadDLL(_portBalance, _portRFID, (int)_baud, _nbDataBits, (int)_parity, _nbStopBits, _SNAntenne, _SNBalance, _minPoidsOeuf, _maxPoidsOeuf, _minPoidsPoule, _maxPoidsPoule, _debug, _pathDebugFile) : CreateThread(_portBalance, _portRFID, (int)_baud, _nbDataBits, (int)_parity, _nbStopBits, _SNAntenne, _SNBalance, _minPoidsOeuf, _maxPoidsOeuf, _minPoidsPoule, _maxPoidsPoule, _debug, _pathDebugFile);
         }
 
         public void KillThread()
@@ -385,7 +430,14 @@ namespace Orvia.Services
             if (_threadInstance == IntPtr.Zero)
                 throw new ArgumentNullException("Thread instance does not exists");
 
-            KillThread(_threadInstance);
+            if (UseDll)
+            {
+                KillThreadDLL(_threadInstance);
+            }
+            else
+            {
+                KillThread(_threadInstance);
+            }
         }
 
         public int WakeUpThread()
@@ -393,14 +445,14 @@ namespace Orvia.Services
             if (_threadInstance == IntPtr.Zero)
                 throw new ArgumentNullException("Thread instance does not exists");
 
-            return WakeUpThread(_threadInstance);
+            return UseDll ? WakeUpThreadDLL(_threadInstance) : WakeUpThread(_threadInstance);
         }
         public void getStatut()
         {
             if (_threadInstance == IntPtr.Zero)
                 throw new ArgumentNullException("Thread instance does not exists");
 
-            _status = (Status)getStatut(_threadInstance);
+            _status = (Status)(UseDll ? getStatutDLL(_threadInstance) : getStatut(_threadInstance));
         }
 
         public char[] getError()
@@ -408,7 +460,7 @@ namespace Orvia.Services
             if (_threadInstance == IntPtr.Zero)
                 throw new ArgumentNullException("Thread instance does not exists");
 
-            return getError(_threadInstance);
+            return UseDll ? getErrorDLL(_threadInstance) : getError(_threadInstance);
         }
 
         public void getNbOeuf()
@@ -416,7 +468,7 @@ namespace Orvia.Services
             if (_threadInstance == IntPtr.Zero)
                 throw new ArgumentNullException("Thread instance does not exists");
 
-            _nbOeufs = getNbOeuf(_threadInstance);
+            _nbOeufs = UseDll ? getNbOeufDLL(_threadInstance) : getNbOeuf(_threadInstance);
         }
 
         public int getPontes()
@@ -426,7 +478,7 @@ namespace Orvia.Services
 
             string[] pontes = new string[100];
 
-            var ret = getPontes(_threadInstance, ref pontes);
+            var ret = UseDll ? getPontesDLL(_threadInstance, ref pontes) : getPontes(_threadInstance, ref pontes);
 
             return ret;
         }

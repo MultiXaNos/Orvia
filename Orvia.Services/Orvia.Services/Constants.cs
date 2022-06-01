@@ -16,6 +16,12 @@ public static class Constants
         public const string GetStatutEntryPoint = "?getStatut@@YAHPEAVThreadNid@@@Z";
     }
 
+    public static class SO
+    {
+        public const string SOPath =
+            @"ThreadSO\Threadlib.so";
+    }
+
     public static class DataBase
     {
         public const string HostName = "sql698.main-hosting.eu";

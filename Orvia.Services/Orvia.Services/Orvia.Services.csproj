@@ -37,6 +37,12 @@
       <None Update="ThreadDLL\x64\Debug\ThreadDLL.dll">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </None>
+      <None Update="ThreadDLL\x64\Debug\ThreadDLL.lib">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <None Update="ThreadSO\Threadlib.so">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>

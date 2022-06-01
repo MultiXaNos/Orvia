@@ -37,3 +37,5 @@ C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Console\obj\Debug\net6.0\refi
 C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Console\obj\Debug\net6.0\Orvia.Console.pdb
 C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Console\obj\Debug\net6.0\Orvia.Console.genruntimeconfig.cache
 C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Console\obj\Debug\net6.0\ref\Orvia.Console.dll
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Console\bin\Debug\net6.0\ThreadDLL\x64\Debug\ThreadDLL.lib
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Console\bin\Debug\net6.0\ThreadSO\Threadlib.so

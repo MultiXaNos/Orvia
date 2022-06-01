@@ -14,3 +14,5 @@ C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\obj\D
 C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\obj\Debug\net6.0\refint\Orvia.Services.dll
 C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\obj\Debug\net6.0\Orvia.Services.pdb
 C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\obj\Debug\net6.0\ref\Orvia.Services.dll
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\bin\Debug\net6.0\ThreadDLL\x64\Debug\ThreadDLL.lib
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\bin\Debug\net6.0\ThreadSO\Threadlib.so
