@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32319.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orvia.View", "Orvia.View\Orvia.View.csproj", "{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orvia.Services", "Orvia.Services\Orvia.Services\Orvia.Services.csproj", "{4466AEDF-9FAE-4CE7-AF21-5F26847223CE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orvia.Console", "Orvia.Console\Orvia.Console.csproj", "{E78BEA02-7C88-4E76-B20C-449BE50E6075}"
@@ -19,18 +17,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Debug|x64.Build.0 = Debug|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Debug|x86.Build.0 = Debug|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Release|x64.ActiveCfg = Release|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Release|x64.Build.0 = Release|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Release|x86.ActiveCfg = Release|Any CPU
-		{1BB2055A-37A0-494F-8463-3CCE1E57C8CB}.Release|x86.Build.0 = Release|Any CPU
 		{4466AEDF-9FAE-4CE7-AF21-5F26847223CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4466AEDF-9FAE-4CE7-AF21-5F26847223CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4466AEDF-9FAE-4CE7-AF21-5F26847223CE}.Debug|x64.ActiveCfg = Debug|Any CPU
