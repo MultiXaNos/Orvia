@@ -1,37 +1,22 @@
-/*!
-\file    serialib.h
-\brief   Header file of the class serialib. This class is used for communication over a serial device.
-\author  Philippe Lucidarme (University of Angers)
-\version 2.0
-\date    december the 27th of 2019
-This Serial library is used to communicate through serial port.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
-INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
-PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE X CONSORTIUM BE LIABLE FOR ANY CLAIM,
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-This is a licence-free software, it can be used by anyone who try to build a better world.
-*/
-
+#pragma once
 
 #ifndef SERIALIB_H
 #define SERIALIB_H
 
-
-
 // Include for windows
 #if defined (_WIN32) || defined (_WIN64)
+
     // Accessing to the serial port under Windows
     #include <windows.h>
     #include <sys/timeb.h>
     #include <sys/types.h>
     #include <winsock2.h>
+
 #endif
 
 // Include for Linux
 #if defined (__linux__) || defined(__APPLE__)
+
     #include <stdlib.h>
     #include <sys/time.h>
     #include <sys/types.h>
@@ -39,12 +24,11 @@ This is a licence-free software, it can be used by anyone who try to build a bet
     #include <termios.h>
     #include <string.h>
     #include <iostream>
-    // File control definitions
     #include <fcntl.h>
     #include <unistd.h>
     #include <sys/ioctl.h>
-#endif
 
+#endif
 
 /*! To avoid unused parameters */
 #define UNUSED(x) (void)(x)
@@ -80,25 +64,20 @@ enum SerialParity {
     SERIAL_PARITY_SPACE /**< space bit */
 };
 
-/*!  \class     serialib
-     \brief     This class is used for communication over a serial device.
-*/
+// **********************************************************************************************************
+//  Class serialib
+// **********************************************************************************************************
+
 class serialib
 {
+    
 public:
-
-    //_____________________________________
-    // ::: Constructors and destructors :::
-
-
 
     // Constructor of the class
     serialib    ();
 
     // Destructor
     ~serialib   ();
-
-
 
     //_________________________________________
     // ::: Configuration and initialization :::
@@ -114,8 +93,6 @@ public:
     void    closeDevice();
 
 
-
-
     //___________________________________________
     // ::: Read/Write operation on characters :::
 
@@ -125,8 +102,6 @@ public:
 
     // Read a char (with timeout)
     char    readChar    (char *pByte,const unsigned int timeOut_ms=0);
-
-
 
 
     //________________________________________
@@ -147,19 +122,14 @@ public:
     // _____________________________________
     // ::: Read/Write operation on bytes :::
 
-
     // Write an array of bytes
     char    writeBytes  (const void *Buffer, const unsigned int NbBytes);
 
     // Read an array of byte (with timeout)
     int     readBytes   (void *buffer,unsigned int maxNbBytes,const unsigned int timeOut_ms=0, unsigned int sleepDuration_us=100);
 
-
-
-
     // _________________________
     // ::: Special operation :::
-
 
     // Empty the received buffer
     char    flushReceiver();
@@ -167,12 +137,8 @@ public:
     // Return the number of bytes in the received buffer
     int     available();
 
-
-
-
     // _________________________
     // ::: Access to IO bits :::
-
 
     // Set CTR status (Data Terminal Ready, pin 4)
     bool    DTR(bool status);
@@ -204,6 +170,7 @@ public:
 
 
 private:
+
     // Read a string (no timeout)
     int             readStringNoTimeOut  (char *String,char FinalChar,unsigned int MaxNbBytes);
 
@@ -216,10 +183,12 @@ private:
 
 
 #if defined (_WIN32) || defined( _WIN64)
+
     // Handle on serial device
     HANDLE          hSerial;
     // For setting serial port timeouts
     COMMTIMEOUTS    timeouts;
+
 #endif
 #if defined (__linux__) || defined(__APPLE__)
     int             fd;
@@ -227,14 +196,13 @@ private:
 
 };
 
+// **********************************************************************************************************
+//  Class timeOut
+// **********************************************************************************************************
 
-
-/*!  \class     timeOut
-     \brief     This class can manage a timer which is used as a timeout.
-   */
-// Class timeOut
 class timeOut
 {
+
 public:
 
     // Constructor
@@ -247,8 +215,10 @@ public:
     unsigned long int   elapsedTime_ms();
 
 private:
+
     // Used to store the previous time (for computing timeout)
     struct timeval      previousTime;
+
 };
 
 #endif // serialib_H

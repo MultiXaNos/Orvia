@@ -49,13 +49,33 @@ public sealed class NidsManager : IDisposable
 
         Nids = new Dictionary<string,Nid>();
         MySqlServices.Instance.OpenCommunication();
-        var test = MySqlServices.Instance.SendReadRequest("SELECT * FROM NID");
-        for(int i = 0; i < test.FieldCount; i++)
+        var allNids = MySqlServices.Instance.SendReadRequest("SELECT * FROM NID");
+
+        List<object> values = new List<object>();
+
+        while(allNids.Read())
         {
-            Nids.Add($"Nid{i+1}", new Nid());
+            values.Add(allNids["id_nid"]);
         }
 
-        _timer.Start();
+        allNids.Close();
+
+        for(int i = 0; i < values.Count; i++)
+        {
+            var nidConfig = MySqlServices.Instance.SendReadRequest($"SELECT poid_minimal_oeuf, poid_maximal_oeuf, poid_minimal_palmipede, poid_maximal_palmipede FROM ESPECE JOIN BATIMENT B on ESPECE.id_espece = B.id_espece JOIN NID N on B.id_batiment = N.id_batiment WHERE id_nid = {i+1}");
+
+            while(nidConfig.Read())
+            {
+                var minPoidsOeuf = double.Parse(nidConfig["poid_minimal_oeuf"].ToString());
+                var maxPoidsOeuf = double.Parse(nidConfig["poid_maximal_oeuf"].ToString());
+                var minPoidsPoule = double.Parse(nidConfig["poid_minimal_palmipede"].ToString());
+                var maxPoidsPoule = double.Parse(nidConfig["poid_maximal_palmipede"].ToString());
+
+                Nids.Add($"Nid{i+1}", new Nid($"Nid{i + 1}",minPoidsOeuf, maxPoidsOeuf, minPoidsPoule, maxPoidsPoule));
+            }
+
+            nidConfig.Close();
+        }
     }
 
     private void Timer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)
@@ -63,11 +83,18 @@ public sealed class NidsManager : IDisposable
         lock (_lockObject)
         {
             _timer.Stop();
-            foreach (var value in Nids.Values.Where(x => x.IsConfigured))
+            foreach (var value in Nids.Values)
             {
-                value.getStatut();
-                value.getNbOeuf();
-                value.getPontes();
+                if (value.IsConfigured)
+                {
+                    value.getStatut();
+                    value.getNbOeuf();
+                    value.getPontes();
+                }
+                else
+                {
+                    RegisterInFile(value.Name, value);
+                }
             }
             _timer.Start();
         }
@@ -84,16 +111,17 @@ public sealed class NidsManager : IDisposable
             throw new Exception("Xml file has not been instianted");
         }
 
-        _document?.Root?.Elements().Remove();
+        if (_document.Descendants("NidsManager").Descendants(name) == null)
+        { 
+            var nidXml = new XElement(name,
+                            new XElement("PortBalance", nid.PortBalance),
+                            new XElement("PortRFID", nid.PortRFID),
+                            new XElement("BaudRate", (int)nid.BaudRate)
+                            );
 
-        var nidXml = new XElement(name,
-                        new XElement("PortBalance", nid.PortBalance),
-                        new XElement("PortRFID", nid.PortRFID),
-                        new XElement("BaudRate", (int)nid.BaudRate)
-                        );
-
-        _document?.Root?.Add(nidXml);
-        _document?.Save(Constants.XmlFile.NidsFilePath);
+            _document?.Root?.Add(nidXml);
+            _document?.Save(Constants.XmlFile.NidsFilePath);
+        }
     }
 
     public List<KeyValuePair<string, Nid>> GetNidsNonConfig()
@@ -125,7 +153,8 @@ public sealed class NidsManager : IDisposable
                 double minPoidsPoule = double.Parse(element.Element("MinPoidsPoule")?.Value);
                 double maxPoidsPoule = double.Parse(element.Element("MaxPoidsPoule")?.Value);
 
-                Nids[name] = new Nid(portBalance,
+                Nids[name] = new Nid(name,
+                                       portBalance,
                                        portRFID,
                                        baudRate,
                                        nbDataBits,
@@ -142,6 +171,7 @@ public sealed class NidsManager : IDisposable
         }
         _cancellationToken = cancellationToken;
         _cancellationToken.Register(Dispose);
+        _timer.Start();
     }
 
     #endregion Public Methods
@@ -150,6 +180,11 @@ public sealed class NidsManager : IDisposable
 
     public void Dispose()
     {
+        if(_document != null)
+        {
+            
+        }
+
         foreach(var threadNid in NidsManager.Instance.Nids.Values.Where(x => x.IsConfigured))
         {
             threadNid.Dispose();

@@ -1,3 +1,5 @@
+#pragma once
+
 // pch.h : Il s'agit d'un fichier d'en-tête précompilé.
 // Les fichiers listés ci-dessous sont compilés une seule fois, ce qui améliore les performances de génération des futures builds.
 // Cela affecte également les performances d'IntelliSense, notamment la complétion du code et de nombreuses fonctionnalités de navigation du code.
@@ -7,7 +9,9 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include "framework.h"
+#if defined (_WIN32) || defined( _WIN64)
+    #include "framework.h"
+#endif
 
 #include "serialib.h"
 

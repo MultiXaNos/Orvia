@@ -17,6 +17,7 @@ namespace Orvia.Services
         #region Fields
 
         private IntPtr _threadInstance = IntPtr.Zero;
+        private string _name;
         private string _portBalance = string.Empty;
         private string _portRFID = string.Empty;
         private BaudRate _baud;
@@ -38,6 +39,18 @@ namespace Orvia.Services
         #endregion Fields
 
         #region Properties
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                if(_name != value)
+                {
+                    _name = value;
+                }
+            }
+        }
 
         [XmlElement(ElementName = "PortBalance")]
         public string PortBalance
@@ -275,7 +288,8 @@ namespace Orvia.Services
 
         #region Constructor
 
-        public Nid(string portBalance,
+        public Nid(string name,
+                   string portBalance,
                    string portRFID,
                    BaudRate baud,
                    int nbDataBits,
@@ -288,8 +302,10 @@ namespace Orvia.Services
                    double minPoidsPoule,
                    double maxPoidsPoule,
                    int debug = 1,
-                   string pathDebugFile = @"C:\Users\maxen\Desktop\Logs.txt")
+                   string pathDebugFile = @"C:\Users\maxen\Desktop\Logs.txt",
+                   bool isConfigured = true)
         {
+            Name = name;
             PortBalance = portBalance;
             PortRFID = portRFID;
             BaudRate = baud;
@@ -304,11 +320,14 @@ namespace Orvia.Services
             MaxPoidsPoule = maxPoidsPoule;
             _debug = debug;
             _pathDebugFile = pathDebugFile;
-            _isConfigured = true;
+            _isConfigured = isConfigured;
+
             CreateThread();
         }
 
-        public Nid()
+        public Nid(string name, double minPoidsOeuf, double maxPoidsOeuf, double minPoidsPoule, double maxPoidsPoule) :
+            this(name, string.Empty, string.Empty, default(BaudRate), default(int), default(Parity), default(int),
+                 string.Empty, string.Empty, minPoidsOeuf, maxPoidsOeuf, minPoidsPoule, maxPoidsPoule, isConfigured: false)
         { }
 
         #endregion Constructor

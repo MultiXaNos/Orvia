@@ -53,6 +53,7 @@ namespace Orvia.Console // Note: actual namespace depends on the project name.
             }
             catch(Exception ex)
             {
+                System.Console.WriteLine(ex.Message);
                 if(!_cancellationToken.IsCancellationRequested)
                 {
                     _tokenSource.Cancel();
@@ -101,12 +102,13 @@ namespace Orvia.Console // Note: actual namespace depends on the project name.
 
                     if (CheckNidName(nidString) && NidsManager.Instance.Nids.ContainsKey(nidString))
                     {
-                        NidsManager.Instance.Nids[nidString].WakeUpThread();
+                        //NidsManager.Instance.Nids[nidString].WakeUpThread();
                     }
                 }
                 else
                 {
                     System.Console.WriteLine("Aucun nid à activer");
+                    Thread.Sleep(1000);
                     return;
                 }
             }

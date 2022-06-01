@@ -65,7 +65,6 @@ namespace Orvia.Services
         {
             MySqlCommand command = new MySqlCommand(request, _connection);
             var result = command.ExecuteReader();
-            while (result.Read());
             return result;
         }
 
