@@ -19,7 +19,7 @@ public static class Constants
     public static class SO
     {
         public const string SOPath =
-            @"ThreadSO\Threadlib.so";
+            @"ThreadSO/Threadlib.so";
     }
 
     public static class DataBase
