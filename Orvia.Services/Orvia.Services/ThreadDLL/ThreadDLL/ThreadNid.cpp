@@ -112,7 +112,7 @@ int ThreadNid::getStatut()
 
 }
 
-const char* ThreadNid::getError()
+const char*  ThreadNid::getError()
 {
 
 	return sError.c_str();
@@ -134,39 +134,22 @@ int ThreadNid::getPontes(char ***pontes)
 	int nbColonne;
 	int nbLigne;
 
-	int i;
-	int j;
-
 	int ret;
 
 	ret = nid->getPontes(&allPontes);
 
 	if(ret <=0) exit(0);
 
-	nbLigne = allPontes.size();
-	nbColonne = 3;
+	nbLigne   = allPontes.size();
 
-	pontes = malloc( nbLigne * (**pontes) );    // Allocation mémoire
+	/* Allocation de la 1er dimension */
+	pontes = (char***) malloc(sizeof(char**) * nbLigne);
 
-	for(i = 0; i < nbLigne; i++)    
-	{
-
-		pontes[i] = malloc( nbLigne * sizeof(*pontes) );
-
-		for(j = 0; j < nbColonne; j++)
-			pontes[i][j] = malloc( sizeof( (std::string) allPontes[i][j].length ) );
-
-    }
-
-	for(i = 0; i < nbLigne; i++)               // Remplissage tableau
-	{
-
-		for(j = 0; j < nbColonne; j++)
-			pontes[i][j] = (std::string) allPontes[i][j].c_str();
-
-    }
+	/* Allocation 2e dimension */
+	for (int i = 0; i < nbLigne; i++) {
+		pontes[i] = (char**)malloc(sizeof(char**) * 3);
+	}
 	
-
 	return ret;
 
 }

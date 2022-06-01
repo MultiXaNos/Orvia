@@ -17,7 +17,7 @@ public :
 
 			char * logConstr = NULL;
 
-			snprintf(logConstr, STR_SIZE, "|CONSTRUCTION| Balance port : %s, baudrate : %i, nbDataBits : %i, parity : %i, nbStopBits : %i, SN : %s"
+			snprintf(logConstr, STR_SIZE, "|CONSTRUCTION| Balance port : %s, baudrate : %i, nbDataBits : %i, parity : %i, nbStopBits : %i, SN : %s \n"
 				                        , _port.c_str(), _baud, _nbDataBits, _parity, _nbStopBits, _SN.c_str());
 				
 			WriteInDebugFile(logConstr);
@@ -32,7 +32,7 @@ public :
 
 			char* logConstr = NULL;
 
-			snprintf( logConstr, STR_SIZE, "|DESTRUCTION| SN : %s", SN.c_str() );
+			snprintf(logConstr, STR_SIZE, "|DESTRUCTION| SN z: %s", SN.c_str() + '\n');
 
 			WriteInDebugFile(logConstr);
 

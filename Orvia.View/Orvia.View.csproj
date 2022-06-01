@@ -10,4 +10,8 @@
         <RootNamespace>Orvia.View</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Orvia.Services\Orvia.Services\Orvia.Services.csproj" />
+    </ItemGroup>
+
 </Project>
