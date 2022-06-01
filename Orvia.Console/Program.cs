@@ -12,9 +12,14 @@ namespace Orvia.Console // Note: actual namespace depends on the project name.
     {
         private static CancellationTokenSource _tokenSource = new CancellationTokenSource();
         private static CancellationToken _cancellationToken = _tokenSource.Token;
+        private static bool _disposed = false;
 
         static void Main(string[] args)
         {
+            System.Console.CancelKeyPress += Console_CancelKeyPress;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
+            AppDomain.CurrentDomain.ProcessExit += CurrentDomain_ProcessExit;
+
             try
             {
                 NidsManager.Instance.AppendFromFile(Constants.XmlFile.NidsFilePath, ref _cancellationToken);
@@ -48,6 +53,31 @@ namespace Orvia.Console // Note: actual namespace depends on the project name.
             }
         }
 
+        private static void CurrentDomain_ProcessExit(object? sender, EventArgs e)
+        {
+            if (!_disposed)
+            {
+                ExitApplication();
+            }
+        }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            ExitApplication();
+        }
+
+        private static void Console_CancelKeyPress(object? sender, ConsoleCancelEventArgs e)
+        {
+            ExitApplication();
+        }
+
+        private static void ExitApplication()
+        {
+            _tokenSource.Cancel();
+            _disposed = true;
+            Environment.Exit(0);
+        }
+
         private static void ActivateThread()
         {
             string? nidString = null;
@@ -70,7 +100,7 @@ namespace Orvia.Console // Note: actual namespace depends on the project name.
 
                     if (CheckNidName(nidString) && NidsManager.Instance.Nids.ContainsKey(nidString))
                     {
-                        //NidsManager.Instance.Nids[nidString].WakeUpThread();
+                        NidsManager.Instance.Nids[nidString].WakeUpThread();
                     }
                 }
                 else

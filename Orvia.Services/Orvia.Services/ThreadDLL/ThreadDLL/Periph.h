@@ -30,7 +30,5 @@ public    :
 
 	int getTrame(std::string * trame);
 
-	int WriteInDebugFile(std::string _line);
-
 };
 

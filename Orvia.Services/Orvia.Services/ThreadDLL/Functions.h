@@ -3,6 +3,9 @@
 #include <fstream>
 #include <string>
 
+#include <time.h>
+#include <stdio.h>
+
 //____________________________
 // ::: Utilities Functions :::
 

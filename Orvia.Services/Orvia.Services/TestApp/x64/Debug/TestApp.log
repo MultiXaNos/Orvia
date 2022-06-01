@@ -1,0 +1,22 @@
+﻿  TestApp.cpp
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_Balance.h(20,34): warning C4477: 'snprintf' : la chaîne de format '%s' nécessite un argument de type 'char *', mais l'argument variadique 1 est de type 'const _Elem *'
+          with
+          [
+              _Elem=wchar_t
+          ]
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_Balance.h(20,34): message : utilisez '%ls' dans la chaîne de format
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_Balance.h(20,34): message : utilisez '%lls' dans la chaîne de format
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_Balance.h(20,34): message : utilisez '%Ls' dans la chaîne de format
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_Balance.h(20,34): message : utilisez '%ws' dans la chaîne de format
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_RFID.h(5,1): warning C4005: 'STR_DECISION' : redéfinition de macro
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_Balance.h(5): message : voir la définition précédente de 'STR_DECISION'
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_RFID.h(20,34): warning C4477: 'snprintf' : la chaîne de format '%s' nécessite un argument de type 'char *', mais l'argument variadique 1 est de type 'const _Elem *'
+          with
+          [
+              _Elem=wchar_t
+          ]
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_RFID.h(20,34): message : utilisez '%ls' dans la chaîne de format
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_RFID.h(20,34): message : utilisez '%lls' dans la chaîne de format
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_RFID.h(20,34): message : utilisez '%Ls' dans la chaîne de format
+C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Periph_RFID.h(20,34): message : utilisez '%ws' dans la chaîne de format
+  TestApp.vcxproj -> C:\Users\proje\RiderProjects\Orvia\Orvia.Services\Orvia.Services\TestApp\x64\Debug\TestApp.exe

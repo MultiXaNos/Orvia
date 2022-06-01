@@ -12,14 +12,28 @@ int WriteInDebugFile(std::string _line, std::string _pathDebugFile) {
 
     std::ofstream file;
 
-    file.open (_pathDebugFile, std::ios::out | std::ios::ate);
+    struct tm newtime;
+    __time32_t aclock;
+
+    char buffer[32];
+    errno_t errNum;
+
+    std::string delimiterDate = " ::: ";
+
+    _time32( &aclock ); 
+
+    _localtime32_s( &newtime, &aclock ); 
+
+    errNum = asctime_s(buffer, 32, &newtime);
+
+    file.open(_pathDebugFile, std::ios::out | std::ios::ate | std::ios::app);
 
     if (file.is_open())
     {
 
         ret = 1;
 
-        file << _line + '\n';
+        file << buffer + delimiterDate + _line + '\n';
 
         file.close();
 

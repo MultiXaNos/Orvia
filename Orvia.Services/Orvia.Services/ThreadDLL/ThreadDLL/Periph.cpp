@@ -64,17 +64,3 @@ int Periph::getTrame(std::string* trame) {
 	return res;
 
 }
-
-int Periph::WriteInDebugFile(std::string _line) {
-
-	std::ofstream FileDebug;
-
-	try {FileDebug.open(pathDebugFile);} catch(int e) {exit(-1);}
-
-	FileDebug << _line + '\n';
-
-	FileDebug.close();
-
-	return 1;
-
-}

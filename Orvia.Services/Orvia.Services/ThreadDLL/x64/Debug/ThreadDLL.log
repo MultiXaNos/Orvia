@@ -1,0 +1,31 @@
+﻿  pch.cpp
+  dllmain.cpp
+  Functions.cpp
+  Nid.cpp
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(48,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 9 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(48,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 10 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(48,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 11 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(48,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 12 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(120,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 4 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(219,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 4 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(219,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 5 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(219,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 6 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(219,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 7 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(219,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 8 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(219,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 9 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\Nid.cpp(219,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 10 est de type 'double'
+  Periph.cpp
+  Periph_Balance.cpp
+  Periph_RFID.cpp
+  serialib.cpp
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\serialib.cpp(312,7): warning C4267: 'argument' : conversion de 'size_t' en 'DWORD', perte possible de données
+  ThreadNid.cpp
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\ThreadNid.cpp(44,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 9 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\ThreadNid.cpp(44,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 10 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\ThreadNid.cpp(44,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 11 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\ThreadNid.cpp(44,30): warning C4477: 'snprintf' : la chaîne de format '%d' nécessite un argument de type 'int', mais l'argument variadique 12 est de type 'double'
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\ThreadNid.cpp(277,30): warning C4267: '=' : conversion de 'size_t' en 'int', perte possible de données
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\ThreadNid.cpp(268,6): warning C4101: 'nbColonne' : variable locale non référencée
+  Génération de code en cours...
+     Création de la bibliothèque C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\x64\Debug\ThreadDLL.lib et de l'objet C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\x64\Debug\ThreadDLL.exp
+  ThreadDLL.vcxproj -> C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.Services\Orvia.Services\ThreadDLL\x64\Debug\ThreadDLL.dll

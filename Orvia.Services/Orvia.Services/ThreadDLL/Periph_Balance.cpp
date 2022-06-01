@@ -23,7 +23,7 @@ PeriphBalance::PeriphBalance(	std::string			_SN				 ,
 
 		char buffer[STR_SIZE];
 
-		snprintf(buffer,  STR_SIZE, "|CONSTRUCTION| Balance device : %s, baudrate : %i, nbDataBits : %i, parity : %i, nbStopBits : %i, SN : %s \n"
+		snprintf(buffer,  STR_SIZE, "|CONSTRUCTION| Balance device : %s, baudrate : %i, nbDataBits : %i, parity : %i, nbStopBits : %i, SN : %s"
 			, _device.c_str(), _baud, _nbDataBits, _parity, _nbStopBits, _SN.c_str());
 
 		WriteInDebugFile(buffer, pathDebugFile);
@@ -47,7 +47,7 @@ PeriphBalance::~PeriphBalance()
 
 		char buffer[STR_SIZE];
 
-		snprintf(buffer, STR_SIZE, "|DESTRUCTION| SN z: %s", SN.c_str() + '\n');
+		snprintf(buffer, STR_SIZE, "|DESTRUCTION| SN : %s", SN.c_str());
 
 		WriteInDebugFile(buffer, pathDebugFile);
 

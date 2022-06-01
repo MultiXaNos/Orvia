@@ -1,0 +1,39 @@
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.exe
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.deps.json
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.runtimeconfig.json
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.dll
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.pdb
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.csproj.AssemblyReference.cache
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.AssemblyInfoInputs.cache
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.AssemblyInfo.cs
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.csproj.CoreCompileInputs.cache
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.dll
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\refint\Orvia.View.dll
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.pdb
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.genruntimeconfig.cache
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\ref\Orvia.View.dll
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.Form1.resources
+C:\Users\proje\RiderProjects\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.csproj.GenerateResource.cache
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.exe
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\Resources\Nids.xml
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.deps.json
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.runtimeconfig.json
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.dll
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.View.pdb
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.Services.dll
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\Orvia.Services.pdb
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.csproj.AssemblyReference.cache
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.Form1.resources
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.csproj.GenerateResource.cache
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.AssemblyInfoInputs.cache
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.AssemblyInfo.cs
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.csproj.CoreCompileInputs.cache
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.csproj.CopyComplete
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.dll
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\refint\Orvia.View.dll
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.pdb
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\Orvia.View.genruntimeconfig.cache
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\obj\Debug\net6.0-windows\ref\Orvia.View.dll
+C:\Users\maxen\Documents\Projets Ecole\Orvia\Orvia.View\bin\Debug\net6.0-windows\ThreadDLL\x64\Debug\ThreadDLL.dll

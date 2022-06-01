@@ -48,7 +48,9 @@ public sealed class NidsManager : IDisposable
         _timer.Elapsed += Timer_Elapsed;
 
         Nids = new Dictionary<string,Nid>();
-        MySqlServices.Instance.OpenCommunication();
+        Nids.Add("Nid1", new Nid("Nid1", 350, 150, 200, 220));
+        
+        /*MySqlServices.Instance.OpenCommunication();
         var allNids = MySqlServices.Instance.SendReadRequest("SELECT * FROM NID");
 
         List<object> values = new List<object>();
@@ -75,7 +77,7 @@ public sealed class NidsManager : IDisposable
             }
 
             nidConfig.Close();
-        }
+        }*/
     }
 
     private void Timer_Elapsed(object? sender, System.Timers.ElapsedEventArgs e)

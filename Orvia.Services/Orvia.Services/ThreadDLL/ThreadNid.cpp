@@ -41,7 +41,7 @@ ThreadNid::ThreadNid(   std::string  _deviceBalance ,
 
 		char buffer[STR_SIZE];
 
-		snprintf(buffer, STR_SIZE, "|CONSTRUCTION| ThreadNid deviceBalance : %s, deviceRFID : %s, baudrate : %i, nbDataBits : %i, parity : %i, nbStopBits : %i, SN Balance : %s, SN RFID : %s, Min poids oeuf : %d, Max poids oeuf : %d, Min poids poule : %d, Max poids poule : %d \n ", 
+		snprintf(buffer, STR_SIZE, "|CONSTRUCTION| ThreadNid deviceBalance : %s, deviceRFID : %s, baudrate : %i, nbDataBits : %i, parity : %i, nbStopBits : %i, SN Balance : %s, SN RFID : %s, Min poids oeuf : %d, Max poids oeuf : %d, Min poids poule : %d, Max poids poule : %d", 
 						 _deviceBalance.c_str(), _deviceRFID.c_str(), _baud, _nbDataBits, _parity, _nbStopBits, _SNBalance.c_str(), _SNAntenne.c_str(),
 						 _minPoidsOeuf, _maxPoidsOeuf, _minPoidsPoule, _maxPoidsPoule);
 

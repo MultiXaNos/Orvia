@@ -45,7 +45,7 @@ Nid::Nid	(std::string _deviceBalance		,
 
 		char buffer[STR_SIZE];
 
-		snprintf(buffer, STR_SIZE, "|CONSTRUCTION| Nid deviceBalance : %s, deviceRFID : %s, baudrate : %i, nbDataBits : %i, parity : %i, nbStopBits : %i, SN Balance : %s, SN RFID : %s, Min poids oeuf : %d, Max poids oeuf : %d, Min poids poule : %d, Max poids poule : %d \n ", 
+		snprintf(buffer, STR_SIZE, "|CONSTRUCTION| Nid deviceBalance : %s, deviceRFID : %s, baudrate : %i, nbDataBits : %i, parity : %i, nbStopBits : %i, SN Balance : %s, SN RFID : %s, Min poids oeuf : %d, Max poids oeuf : %d, Min poids poule : %d, Max poids poule : %d", 
 				_deviceBalance.c_str(), _deviceRFID.c_str(), _baud, _nbDataBits, _parity, _nbStopBits, _SNBalance.c_str(), _SNAntenne.c_str(),
 				_minPoidsOeuf, _maxPoidsOeuf, _minPoidsPoule, _maxPoidsPoule);
 
@@ -216,7 +216,7 @@ int  Nid::refresh(std::string* sError)
 
 		char buffer[STR_SIZE];
 
-		snprintf(buffer, STR_SIZE, "Nid::refresh ret = %i, SN antenne = %s, first tag RFID = %s, poids balance = %d, poids oeuf total min = %d, poids oeuf total max = %d, poids poule total min = %d, poids poule total max = %d, poids total min = %d, poids total max = %d\n",
+		snprintf(buffer, STR_SIZE, "Nid::refresh ret = %i, SN antenne = %s, first tag RFID = %s, poids balance = %d, poids oeuf total min = %d, poids oeuf total max = %d, poids poule total min = %d, poids poule total max = %d, poids total min = %d, poids total max = %d",
 		        ret, SNAntenne.c_str(), firstTagRFID.c_str(), poids, poidsOeufTotalMin, poidsOeufTotalMax, poidsPouleTotalMin,
 				poidsPouleTotalMax, poidsTotalMin, poidsTotalMax);
 
@@ -270,7 +270,7 @@ void Nid::addPonte(std::string* tagRFID, std::map<std::string, int>* pontes)
 
 		char buffer[STR_SIZE];
 
-		snprintf(buffer, STR_SIZE, "Nid::addPonte tagRFID = %s\n", tagRFID->c_str());
+		snprintf(buffer, STR_SIZE, "Nid::addPonte tagRFID = %s", tagRFID->c_str());
 
 		WriteInDebugFile(buffer, pathDebugFile);
 
@@ -353,7 +353,7 @@ int Nid::getPontes(std::list< std::list<std::string> > *allPontes)
 
 		char buffer[STR_SIZE];
 
-		snprintf(buffer, STR_SIZE, "Nid::addPonte getPontes = %i\n", ret);
+		snprintf(buffer, STR_SIZE, "Nid::addPonte getPontes = %i", ret);
 
 		WriteInDebugFile(buffer, pathDebugFile);
 
@@ -379,7 +379,7 @@ int  Nid::getNbOeuf()
 
 		char buffer[STR_SIZE];
 
-		snprintf(buffer, STR_SIZE, "Nid::getNbOeuf nb = %i\n", nbOeufs);
+		snprintf(buffer, STR_SIZE, "Nid::getNbOeuf nb = %i", nbOeufs);
 
 		WriteInDebugFile(buffer, pathDebugFile);
 
