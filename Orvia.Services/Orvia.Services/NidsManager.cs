@@ -153,6 +153,11 @@ public sealed class NidsManager : IDisposable
                 double minPoidsPoule = double.Parse(element.Element("MinPoidsPoule")?.Value);
                 double maxPoidsPoule = double.Parse(element.Element("MaxPoidsPoule")?.Value);
 
+                if (Nids[name].IsInstancied)
+                {
+                    Nids[name].KillThread();
+                }
+
                 Nids[name] = new Nid(name,
                                        portBalance,
                                        portRFID,

@@ -284,6 +284,8 @@ namespace Orvia.Services
             }
         }
 
+        public bool IsInstancied => _threadInstance != IntPtr.Zero;
+
         #endregion Properties
 
         #region Constructor
