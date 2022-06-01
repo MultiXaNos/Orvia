@@ -13,40 +13,8 @@ namespace Orvia.Console // Note: actual namespace depends on the project name.
         private static CancellationTokenSource _tokenSource = new CancellationTokenSource();
         private static CancellationToken _cancellationToken = _tokenSource.Token;
 
-        [DllImport("Kernel32")]
-        private static extern bool SetConsoleCtrlHandler(EventHandler handler, bool add);
-
-        private delegate bool EventHandler(CtrlType sig);
-        static EventHandler _handler;
-
-        enum CtrlType
-        {
-            CTRL_C_EVENT = 0,
-            CTRL_BREAK_EVENT = 1,
-            CTRL_CLOSE_EVENT = 2,
-            CTRL_LOGOFF_EVENT = 5,
-            CTRL_SHUTDOWN_EVENT = 6
-        }
-
-        private static bool Handler(CtrlType sig)
-        {
-            switch (sig)
-            {
-                case CtrlType.CTRL_C_EVENT:
-                case CtrlType.CTRL_LOGOFF_EVENT:
-                case CtrlType.CTRL_SHUTDOWN_EVENT:
-                case CtrlType.CTRL_CLOSE_EVENT:
-                    _tokenSource.Cancel();
-                    return true;
-                default:
-                    return false;
-            }
-        }
-
         static void Main(string[] args)
         {
-            SetConsoleCtrlHandler(new EventHandler(Handler), true);
-
             try
             {
                 NidsManager.Instance.AppendFromFile(Constants.XmlFile.NidsFilePath, ref _cancellationToken);
