@@ -8,29 +8,24 @@
 
 int WriteInDebugFile(std::string _line, std::string _pathDebugFile) {
 
-    int ret;
+    int ret; 
 
-    std::string filename(_pathDebugFile);
+    std::ofstream file;
 
-    std::fstream file_out;
+    file.open (_pathDebugFile, std::ios::out | std::ios::ate);
 
-    file_out.open(filename, std::ios_base::out);
-
-    if (!file_out.is_open()) {
-
-        ret = 0;
-
-    } else {
+    if (file.is_open())
+    {
 
         ret = 1;
 
-        file_out.write(_line.c_str() + '\n', _line.size() + 1);
+        file << _line + '\n';
 
-    }
+        file.close();
 
-    file_out.close();
+    } else ret = 0;
 
-	return ret;
+    return ret;
 
 }
 
