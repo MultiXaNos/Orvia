@@ -13,9 +13,6 @@
         "packagesPath": "C:\\Users\\maxen\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\maxen\\Documents\\Projets Ecole\\Orvia\\Orvia.Console\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\maxen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
@@ -75,9 +72,6 @@
         "packagesPath": "C:\\Users\\maxen\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\maxen\\Documents\\Projets Ecole\\Orvia\\Orvia.Services\\Orvia.Services\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
           "C:\\Users\\maxen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
