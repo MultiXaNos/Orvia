@@ -32,6 +32,10 @@ Generated\ Files/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+# Build Results of an ATL Project
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
 
 # Benchmark Results
 BenchmarkDotNet.Artifacts/
@@ -46,6 +50,34 @@ ScaffoldingReadMe.txt
 
 # StyleCop
 StyleCopReport.xml
+# Files built by Visual Studio
+*_i.c
+*_p.c
+*_h.h
+*.ilk
+*.meta
+*.obj
+*.iobj
+*.pch
+*.pdb
+*.ipdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*_wpftmp.csproj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
 
 # Chutzpah Test files
 _Chutzpah*
@@ -177,6 +209,16 @@ _pkginfo.txt
 *.[Cc]ache
 # but keep track of directories ending in .cache
 !?*.[Cc]ache/
+# Others
+ClientBin/
+~$*
+*~
+*.dbmdl
+*.dbproj.schemaview
+*.jfm
+*.pfx
+*.publishsettings
+orleans.codegen.cs
 
 # Including strong name files can present a security risk
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
@@ -275,6 +317,9 @@ OpenCover/
 
 # Azure Stream Analytics local run output
 ASALocalRun/
+
+# MSBuild Binary and Structured Log
+*.binlog
 
 # NVidia Nsight GPU debugger configuration file
 *.nvuser
